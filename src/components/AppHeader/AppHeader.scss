@@ -1,0 +1,132 @@
+@import '../../utils/breakpoints/breakpoints.scss';
+.header {
+  position: relative;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include media('>=479px', '<=desktop') {
+    &__bars {
+      display: none;
+    }
+  }
+  @include media('>=desktop') {
+    &__bars {
+      display: none;
+    }
+  }
+
+  &__logo {
+    width: 4rem;
+    height: 4rem;
+
+    @include media('>=479px', '>=desktop') {
+      width: 4.8rem;
+      height: 4.8rem;
+    }
+    img {
+      max-width: 100%;
+      @include media('>=479px') {
+        margin-left: 3rem;
+      }
+    }
+  }
+  &__links {
+    display: none;
+    @include media('>=479px') {
+      & {
+        display: flex;
+        height: 9.6rem;
+        background-color: rgba(255, 255, 255, 0.04);
+        width: 45rem;
+        justify-content: center;
+        align-items: center;
+        @include media('>=desktop') {
+          backdrop-filter: blur(8.1rem);
+        }
+        li {
+          list-style-type: none;
+          font-family: Barlow;
+          font-weight: 400;
+          font-size: 1.4rem;
+          line-height: 1.68rem;
+          letter-spacing: 0.23rem;
+          align-self: stretch;
+          &:not(:last-child) {
+            margin-right: 3.7rem;
+          }
+          a {
+            text-decoration: none;
+            color: #ffffff;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            span:first-child {
+              display: none;
+              @include media('>=desktop') {
+                display: block;
+                font-family: Barlow;
+                color: #ffffff;
+                font-weight: 700;
+                line-height: 1.9rem;
+                letter-spacing: 0.27rem;
+                margin-right: 1.1rem;
+              }
+            }
+            span:nth-child(2) {
+              @include media('>=desktop') {
+                display: block;
+                font-family: Barlow;
+                color: #ffffff;
+                font-weight: 400;
+                line-height: 1.9rem;
+                font-size: 1.6rem;
+                letter-spacing: 0.27rem;
+                font-style: normal;
+              }
+            }
+          }
+          a::before {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: #ffffff;
+            mix-blend-mode: normal;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+            position: absolute;
+            left: 0;
+            top: 9.4rem;
+          }
+          a:hover::before {
+            width: 100%;
+          }
+          a.active {
+            border-bottom: 3px solid #ffffff;
+          }
+        }
+      }
+    }
+    @include media('>=desktop') {
+      & {
+        width: 83rem;
+      }
+    }
+  }
+}
+
+.stroke {
+  display: none;
+  @include media('>=desktop') {
+    display: block;
+    width: 40.3rem;
+    height: 0.1rem;
+    background-color: #ffffff;
+    position: absolute;
+    opacity: 0.25;
+    top: 9rem;
+    left: 20rem;
+  }
+}
